@@ -1,5 +1,6 @@
-package com.jason.example;
+package com.jason.example.controller;
 
+import com.jason.example.bean.Trade;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;

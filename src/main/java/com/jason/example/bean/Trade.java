@@ -1,4 +1,4 @@
-package com.jason.example;
+package com.jason.example.bean;
 
 /**
  * @author gengjie

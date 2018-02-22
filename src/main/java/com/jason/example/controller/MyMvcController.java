@@ -1,10 +1,11 @@
-package com.jason.example;
+package com.jason.example.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MyMvcController {
@@ -18,5 +19,11 @@ public class MyMvcController {
         model.addAttribute("msg", "Spring quick start!!");
         //return  the name of our jsp page.
         return "my-page";
+    }
+
+    @RequestMapping("/listener")
+    @ResponseBody
+    public String handle () {
+        return "test response from /listener";
     }
 }

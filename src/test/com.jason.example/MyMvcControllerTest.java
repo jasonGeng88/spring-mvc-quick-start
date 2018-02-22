@@ -1,6 +1,6 @@
 package com.logicbig.example;
 
-import com.jason.example.MyWebConfig;
+import com.jason.example.config.MyWebConfig;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

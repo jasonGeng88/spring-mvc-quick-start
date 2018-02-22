@@ -1,4 +1,4 @@
-package com.jason.example;
+package com.jason.example.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan
+@ComponentScan(value = "com.jason.example")
 public class MyWebConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
