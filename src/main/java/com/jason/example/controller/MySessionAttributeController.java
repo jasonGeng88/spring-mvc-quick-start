@@ -4,8 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import java.time.LocalDateTime;
 import java.util.Random;
 
 /**
@@ -23,7 +25,9 @@ public class MySessionAttributeController {
 	}
 
 	@RequestMapping("/test")
-	public String test(@ModelAttribute("random") int random, Model model){
+	public String test(@ModelAttribute("random") int random,
+		  @SessionAttribute("sessionStartTime") LocalDateTime sessionStartTime, Model model){
+		System.out.println(sessionStartTime);
 		model.addAttribute("msg", random);
 		//return  the name of our jsp page.
 		return "my-page";

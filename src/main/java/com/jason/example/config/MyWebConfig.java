@@ -1,10 +1,14 @@
 package com.jason.example.config;
 
+import com.jason.example.interceptor.MyCounterInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
+import org.springframework.format.number.NumberStyleFormatter;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -27,8 +31,21 @@ public class MyWebConfig extends WebMvcConfigurerAdapter {
 	}
 
 	@Override
-	public void addViewControllers (ViewControllerRegistry registry) {
+	public void addViewControllers(ViewControllerRegistry registry) {
 		//our customization
 		System.out.println("addViewControllers");
+	}
+
+	//添加全局formatter
+	@Override
+	public void addFormatters(FormatterRegistry registry) {
+		NumberStyleFormatter numberFormatter = new NumberStyleFormatter();
+		numberFormatter.setPattern("#,###,###,###.##");
+		registry.addFormatterForFieldType(Number.class, numberFormatter);
+	}
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(new MyCounterInterceptor());
 	}
 }
