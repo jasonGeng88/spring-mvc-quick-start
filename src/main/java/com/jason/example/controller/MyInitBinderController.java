@@ -20,6 +20,7 @@ public class MyInitBinderController {
 
 	@InitBinder("msg")
 	public void customizeBinding1(WebDataBinder binder) {
+		System.out.println("customizeBinding1");
 		binder.registerCustomEditor(String.class, new StringTrimmerEditor("---", true));
 	}
 
