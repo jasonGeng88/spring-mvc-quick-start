@@ -23,6 +23,7 @@ public class MyMvcController {
 	@RequestMapping("/listener")
 	@ResponseBody
 	public String handle() {
+		System.out.println("handle");
 		return "test response from /listener";
 	}
 }
