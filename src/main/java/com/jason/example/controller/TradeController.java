@@ -29,6 +29,7 @@ public class TradeController {
 			  .format("trade request. buySell: %s, buyCurrency: %s, sellCurrency: %s", buySell, buyCurrency,
 					sellCurrency);
 		LOGGER.info(msg);
+		LOGGER.info("test");
 		map.addAttribute("msg", msg);
 		return "trade-convertor";
 	}
