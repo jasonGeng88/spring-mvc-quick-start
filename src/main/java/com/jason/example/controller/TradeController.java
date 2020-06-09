@@ -30,6 +30,9 @@ public class TradeController {
 					sellCurrency);
 		LOGGER.info(msg);
 		LOGGER.info("test");
+		if ("a" == msg) {
+			LOGGER.info("sample errors");
+		}
 		map.addAttribute("msg", msg);
 		return "trade-convertor";
 	}
